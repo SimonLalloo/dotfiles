@@ -1,0 +1,45 @@
+[user]
+    email = simon@lalloo.net
+    name = SimonLalloo
+
+[credential]
+    helper = store
+
+[core]
+    editor = vim
+    excludesfile = /home/simon/.config/git/global_gitignore
+
+    # for Windows
+    # autocrlf = true
+
+[color]
+    ui = auto
+
+[alias] 
+    unstage = restore --staged
+
+    # Log variants
+    last = log -1 HEAD
+    lg = log --graph -n 10 --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset - %Cgreen%cr%Creset' --abbrev-commit --date=local
+    hist = log --graph --pretty=format:'%Cred%h%Creset - %s%C(yellow)%d%Creset - %Cgreen(%ad) %C(bold blue)[%an]%Creset' --abbrev-commit --date=format-local:'%b %d %H:%M %Y'
+
+[init]
+    defaultBranch = master
+
+[pull]
+    rebase = false
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$REMOTE" "$LOCAL"
+
+[merge]
+    tool = meld
+[mergetool "meld"]
+    # Choose one of these 2 lines (not both!) explained below.
+    cmd = meld "$REMOTE" "$MERGED" "$LOCAL" --output "$MERGED"
+    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+    #https://stackoverflow.com/questions/34119866/setting-up-and-using-meld>
