@@ -24,34 +24,34 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
 -- Rounded corners
-client.connect_signal("manage", function(c)
-  if not c.maximized then
-    c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 20)
-    end
-    -- if c.name == "polybar complete_gapless" then
-    --   c.shape = gears.shape.rectangle
-    -- end
-  end
-end)
-
-client.connect_signal("property::maximized", function(c)
-  if c.maximized then
-    c.shape = gears.shape.rectangle
-    c.border_width = false
-  else
-    c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 20)
-    end
-  end
-end)
-
-client.connect_signal("property::fullscreen", function(c)
-  if c.fullscreen then
-    c.shape = gears.shape.rectangle
-  else
-    c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 20)
-    end
-  end
-end)
+-- client.connect_signal("manage", function(c)
+--   if not c.maximized then
+--     c.shape = function(cr, w, h)
+--       gears.shape.rounded_rect(cr, w, h, 20)
+--     end
+--     -- if c.name == "polybar complete_gapless" then
+--     --   c.shape = gears.shape.rectangle
+--     -- end
+--   end
+-- end)
+--
+-- client.connect_signal("property::maximized", function(c)
+--   if c.maximized then
+--     c.shape = gears.shape.rectangle
+--     c.border_width = false
+--   else
+--     c.shape = function(cr, w, h)
+--       gears.shape.rounded_rect(cr, w, h, 20)
+--     end
+--   end
+-- end)
+--
+-- client.connect_signal("property::fullscreen", function(c)
+--   if c.fullscreen then
+--     c.shape = gears.shape.rectangle
+--   else
+--     c.shape = function(cr, w, h)
+--       gears.shape.rounded_rect(cr, w, h, 20)
+--     end
+--   end
+-- end)

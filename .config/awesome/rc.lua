@@ -7,7 +7,8 @@ require("lib.init")         -- The base imports
 require("lib.startupError") -- Show errors if the config doesn't compile
 
 local theme_path = gears.filesystem.get_configuration_dir() .. "themes/"
-beautiful.init(theme_path .. "gruvbox/theme.lua")
+-- beautiful.init(theme_path .. "gruvbox/theme.lua")
+beautiful.init(theme_path .. "gruvbox/theme_gapless.lua")
 
 require("lib.variables")    -- Basic variables & layouts
 require("lib.menu")         -- The 'right click' menu
