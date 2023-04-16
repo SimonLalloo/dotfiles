@@ -19,8 +19,9 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- ============= Theming ===========================
-   
-    -- use({ -- FIXME: This one is broken
+
+    -- FIXME: This one is broken
+    -- use({ 
     --     "dharmx/nvim-colo",
     --     config = function()
     --         require("colo").setup()
@@ -29,12 +30,10 @@ require('packer').startup(function(use)
     --         "nvim-lua/plenary.nvim",
     --     }
     -- })
-    
+
+    -- use { "catppuccin/nvim", as = "catppuccin" }
+
     use 'sainnhe/gruvbox-material'
-    vim.g.gruvbox_material_transparent_background = 1
-    vim.g.gruvbox_material_better_performance = 1
-    vim.g.gruvbox_material_foreground = 'original'
-    vim.cmd [[ colorscheme gruvbox-material ]]
 
     -- =================================================
 
@@ -79,6 +78,11 @@ require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' }, -- Required
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
+    }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
     -- Small things
