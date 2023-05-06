@@ -18,10 +18,11 @@ require('packer').startup(function(use)
     -- (and can uninstall itself if not included here)
     use 'wbthomason/packer.nvim'
 
-    -- ============= Theming ===========================
+    -- ================= Theming =======================
+    -- Enable themes in after/plugin/theme.lua
 
     -- FIXME: This one is broken
-    -- use({ 
+    -- use({
     --     "dharmx/nvim-colo",
     --     config = function()
     --         require("colo").setup()
@@ -42,8 +43,13 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', 
+        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+    }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-media-files.nvim' }
 
-    -- Treesitter (AST for syntax highlighting and stuff)  
+    -- Treesitter (AST for syntax highlighting and stuff)
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 
     -- Harpoon (file nav)
@@ -56,6 +62,22 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     -- Git-signs
     use 'lewis6991/gitsigns.nvim'
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    -- Small things
+    use 'norcalli/nvim-colorizer.lua'
+    use 'numToStr/Comment.nvim'
+    use "windwp/nvim-autopairs"
+
+    -- File tree
+    use 'nvim-tree/nvim-tree.lua'
+
+    -- Icons
+    use 'nvim-tree/nvim-web-devicons'
 
     -- LSP Zero (Language Server)
     use {
@@ -79,15 +101,11 @@ require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         }
     }
+    -- LSP loading thing
+    use 'j-hui/fidget.nvim'
 
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-
-    -- Small things
-    use 'norcalli/nvim-colorizer.lua'
-    use 'numToStr/Comment.nvim'
+    -- Other language stuff
+    use 'simrat39/rust-tools.nvim'
 
     -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
     local has_plugins, plugins = pcall(require, 'custom.plugins')
@@ -127,4 +145,3 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 ----------           Main require             ----------
 ---------- ================================== ----------
 require("conf")
-
