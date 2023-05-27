@@ -42,7 +42,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
     -- Lock
-    awful.key({ modkey,           }, "q", function () awful.util.spawn("xscreensaver-command -lock") end,
+    awful.key({ modkey,           }, "q", function () awful.spawn("xscreensaver-command -lock") end,
               {description = "lock", group = "awesome"}),
 
 
@@ -52,10 +52,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     -- Switch to app
-    awful.key({ modkey }, "r", function () awful.util.spawn("rofi -show window") end,
+    -- TODO: Figure out why using the launch scripts doesn't work
+    -- awful.key({ modkey }, "r", function () awful.util.spawn("~/.config/rofi/launchers/type-1/launcher.sh") end,
+    awful.key({ modkey }, "r", function () awful.spawn("rofi -show window -theme ~/.config/rofi/launchers/type-1/style-8.rasi") end,
               {description = "App switcher", group = "launcher"}),
     -- Start app
-    awful.key({ modkey }, "p", function() awful.util.spawn("rofi -show run") end,
+    awful.key({ modkey }, "p", function() awful.spawn("rofi -show drun -theme ~/.config/rofi/launchers/type-1/style-8.rasi") end,
               {description = "App launcher", group = "launcher"}),
     -- Start terminal
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,

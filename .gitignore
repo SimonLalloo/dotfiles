@@ -26,6 +26,8 @@
 !/.config/tmux
 /.config/tmux/plugins
 
+!/.config/rofi
+
 # Files not from .config folder
 !.gitconfig
 !.gitignore
