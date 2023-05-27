@@ -1,0 +1,32 @@
+# Ignore everything except specified
+/*
+
+# Enable adding specific folders from config
+!/.config
+/.config/*
+
+# Add specific folders from config
+!/.config/nvim
+/.config/nvim/plugin
+
+!/.config/git
+
+!/.config/awesome
+
+!/.config/polybar
+
+!/.config/alacritty
+
+!/.config/picom
+
+!/.config/fish/config.fish
+!/.config/fish/fish_variables
+!/.config/starship.toml
+
+!/.config/tmux
+/.config/tmux/plugins
+
+# Files not from .config folder
+!.gitconfig
+!.gitignore
+!.bashrc
