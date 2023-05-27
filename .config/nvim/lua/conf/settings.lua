@@ -5,7 +5,7 @@
 
 -- Line numbers
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 
 -- Tabs and indents
 vim.opt.tabstop = 4
