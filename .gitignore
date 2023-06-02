@@ -28,6 +28,8 @@
 
 !/.config/rofi
 
+!/.config/dunst
+
 # Files not from .config folder
 !.gitconfig
 !.gitignore

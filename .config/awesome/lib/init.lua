@@ -12,6 +12,7 @@ wibox = require("wibox")
 beautiful = require("beautiful")
 
 -- Notification library
+package.loaded["naughty.dbus"] = {} -- Allow dunst
 naughty = require("naughty") -- Notifications
 
 menubar = require("menubar") -- TODO: remove this
