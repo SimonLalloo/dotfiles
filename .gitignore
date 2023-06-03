@@ -1,0 +1,6 @@
+# Include this file
+!.gitignore
+
+# Generated when installing plugins
+nvim/.config/nvim/plugin
+tmux/.config/tmux/plugins
