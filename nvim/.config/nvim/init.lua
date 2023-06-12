@@ -43,9 +43,9 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use { 'nvim-telescope/telescope-fzf-native.nvim', 
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
-    }
+    -- use { 'nvim-telescope/telescope-fzf-native.nvim', 
+    --     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+    -- }
     use { 'nvim-telescope/telescope-ui-select.nvim' }
     use { 'nvim-telescope/telescope-media-files.nvim' }
 
@@ -102,7 +102,7 @@ require('packer').startup(function(use)
         }
     }
     -- LSP loading thing
-    use 'j-hui/fidget.nvim'
+    use {'j-hui/fidget.nvim', tag = "legacy"}
 
     -- Other language stuff
     use 'simrat39/rust-tools.nvim'

@@ -7,7 +7,7 @@ alias :e='nvim'
 alias c='clear'
 alias eduroam='nmcli device wifi connect eduroam'
 alias ll='ls -alF'
-alias updateall='sudo pacman -Syu && paru -Syu && flatpak update'
+alias updateall='sudo pacman -Syu && flatpak update'
 
 # SSH 
 alias ssh_start='eval $(ssh-agent -c)'

@@ -28,7 +28,7 @@ alias ssh_school='ssh sila3085@arrhenius.it.uu.se'
 
 alias ls='ls --color=auto'
 alias ll='ls -alF'
-alias updateall='sudo pacman -Syu && paru -Syu && flatpak update'
+alias updateall='sudo pacman -Syu && flatpak update'
 
 # Git
 alias gg='git status'
