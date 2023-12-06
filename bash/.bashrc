@@ -36,4 +36,11 @@ alias gd='git difftool'
 
 PS1='[\u@\h \W]\$ '
 
+# Autostart tmux
+# If tmux exists, and in interactive system, and not in default shell, and not already in tmux
+# https://unix.stackexchange.com/questions/43601/how-can-i-set-my-default-shell-to-start-up-tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ linux ]]&& [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+ exec tmux new-session -A -s main
+fi
+
 # Add to path
