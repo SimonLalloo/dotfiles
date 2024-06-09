@@ -10,8 +10,9 @@ sleep 1
 /usr/lib/xdg-desktop-portal &
 
 # Wallpapers
-swww init &
-swww img ~/Pictures/Wallpapers/wallpaper_2.jpg &
+# swww init &
+# swww img ~/Pictures/Wallpapers/wallpaper_2.jpg &
+hyprpaper &
 
 # Networking
 nm-applet --indicator &
@@ -23,7 +24,9 @@ waybar &
 dunst &
 
 # Timeout and locking
+# TODO: fix this
 exec swayidle -w \
-          timeout 180 'systemctl suspend' \
+          # timeout 180 'systemctl suspend' \
+          timeout 300 'systemctl suspend' \
           # before-sleep '$HOME/.config/hypr/lock.sh'\
           after-resume '$HOME/.config/hypr/lock.sh'
