@@ -1,0 +1,26 @@
+[user]
+	email = simon@lalloo.me
+	name = Simon Lalloo
+
+[credential]
+	helper = store
+
+[core]
+	editor = vim
+	excludesfile = $XDG_CONFIG_HOME/git/gitignore
+
+[color]
+	ui = auto
+
+[alias]
+	unstage = restore --staged
+
+	# TODO
+	
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+# TODO: Add Meld
