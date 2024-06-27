@@ -27,6 +27,9 @@ autoload -U compinit && compinit
 
 zinit cdreplay -q
 
+# Load prompt
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
+
 # Emacs mode
 bindkey -e
 bindkey '^p' history-search-backward
