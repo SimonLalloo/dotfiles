@@ -1,0 +1,54 @@
+/*
+ Green: #b8bb26 and #98971a
+ Gray:  #928374 and #282828
+*/
+
+window {
+    background-color: rgba(00, 00, 00, 0.5);
+    color: #928374;
+    border: none;
+    border-radius: 0;
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+#input {
+    border: none;
+    background-color: transparent;
+    color: #928374;
+    margin: 5px;
+}
+
+#scroll {
+    margin: 5px;
+}
+
+#text {
+    margin: 5px;
+}
+
+#entry:selected {
+    background-color: #928374;
+}
+
+#text:selected {
+    color: #282828;
+}
+
+/* This bit doesn't work */
+
+/* Scrollbar styling */
+/*#scrollbar {*/
+/*    background-color: rgba(ff, 60, 60, 0.5);*/
+/*    border: none;*/
+/*}*/
+/**/
+/*#scrollbar slider {*/
+/*    background-color: rgba(180, ff, 180, 0.5);*/
+/*    border-radius: 10px;*/
+/*    margin: 3px;*/
+/*}*/
+/**/
+/*#scrollbar slider:hover {*/
+/*    background-color: rgba(200, 200, ff, 0.7);*/
+/*}*/

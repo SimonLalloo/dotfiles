@@ -1,0 +1,61 @@
+*{
+  /* font-family: monospace; */
+  font-size: 25px;
+}
+
+
+
+/*
+ Green: #b8bb26 and #98971a
+ Gray:  #928374 and #282828
+*/
+
+window {
+    margin: 0px;
+    background-color: transparent;
+    border: none;
+}
+
+#input {
+    margin: 5px;
+    border: none;
+    color: #b8bb26;
+    background-color: #282828;
+}
+
+#inner-box {
+    margin: 5px;
+    border: none;
+    /*background-color: #282828;*/
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+#outer-box {
+    margin: 15px;
+    border: none;
+    /*background-color: #282828;*/
+    background-color: transparent;
+}
+
+#scroll {
+    margin: 0px;
+    border: none;
+}
+
+#text {
+    margin: 5px;
+    border: none;
+    color: #b8bb26;
+} 
+
+#entry:selected {
+    background-color: #b8bb26;
+    text: #028374
+    border-radius: 15px;
+    outline: none;
+}
+
+#entry:selected * {
+    text: #028374
+}
