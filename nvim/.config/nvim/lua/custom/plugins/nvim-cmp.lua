@@ -31,6 +31,8 @@ return { -- Autocompletion
     -- Adds other completion capabilities.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline', -- requires cmp-buffer
   },
   config = function()
     -- See `:help cmp`
@@ -38,6 +40,30 @@ return { -- Autocompletion
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
+    -- `/` cmdline setup.
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' },
+      },
+    })
+
+    -- `:` cmdline setup.
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' },
+      }, {
+        {
+          name = 'cmdline',
+          option = {
+            ignore_cmds = { 'Man', '!' },
+          },
+        },
+      }),
+    })
+
+    -- `i` mode setup
     cmp.setup {
       snippet = {
         expand = function(args)
@@ -92,6 +118,7 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'buffer' },
       },
     }
   end,
