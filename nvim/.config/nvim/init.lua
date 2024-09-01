@@ -5,6 +5,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Set to true if your terminal supports true color
+vim.opt.termguicolors = true
+
 ---------- ================================== ----------
 ----------       Install package manager      ----------
 ---------- ================================== ----------
