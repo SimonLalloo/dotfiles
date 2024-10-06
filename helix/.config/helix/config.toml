@@ -1,0 +1,15 @@
+theme = "gruvbox_dark_hard"
+
+[editor]
+line-number = "relative"
+shell = ["zsh", "-c"]
+mouse = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+

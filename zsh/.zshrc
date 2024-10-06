@@ -64,6 +64,7 @@ alias c='clear'
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias :e='nvim'
+alias hx='helix'
 
 alias ssh-UU='ssh sila3085@arrhenius.it.uu.se'
 alias ssh-UPPMAX='ssh -X simonla@rackham.uppmax.uu.se'
