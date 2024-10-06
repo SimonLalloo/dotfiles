@@ -1,0 +1,1 @@
+return { 'CervEdin/vim-minizinc' }
