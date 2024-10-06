@@ -71,3 +71,13 @@ alias ssh-UPPMAX='ssh -X simonla@rackham.uppmax.uu.se'
 
 alias gg='git status'
 alias gd='git difftool'
+
+# Enable using yazi for directory navigation
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
