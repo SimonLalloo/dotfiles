@@ -102,6 +102,17 @@ return { -- LSP Configuration & Plugins
       },
     }
 
+    require('lspconfig').dafny.setup {
+      cmd = { 'dafny', 'server' },
+      filetypes = { 'dafny' },
+      root_dir = require('lspconfig').util.root_pattern '*.dfy',
+      settings = {
+        dafny = {
+          -- Add any Dafny-specific settings here
+        },
+      },
+    }
+
     -- Ensure the servers and tools above are installed
     require('mason').setup()
 
