@@ -9,6 +9,14 @@
 -- },
 return {
   {
+    'rachartier/tiny-devicons-auto-colors.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = true,
+  },
+
+  {
     'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,

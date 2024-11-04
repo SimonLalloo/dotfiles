@@ -24,4 +24,11 @@ vim.opt.rtp:prepend(lazypath)
 ---------- ================================== ----------
 ----------               Plugins!             ----------
 ---------- ================================== ----------
-require('lazy').setup({ import = 'custom/plugins' }, {})
+require('lazy').setup {
+  spec = {
+    { import = 'custom/plugins' },
+  },
+  change_detection = {
+    enabled = false,
+  },
+}
