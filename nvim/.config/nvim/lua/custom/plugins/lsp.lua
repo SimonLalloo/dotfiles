@@ -65,13 +65,35 @@ return {
 
   {
     'neovim/nvim-lspconfig',
+    dependencies = {
+      -- Automatically install LSPs and related tools to stdpath for Neovim
+      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+
+      --  LSP status updates.
+      { 'j-hui/fidget.nvim', opts = {} },
+
+      -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+      -- used for completion, annotations and signatures of Neovim apis
+      { 'folke/neodev.nvim', opts = {} },
+    },
     opts = {
       servers = {
         dockerls = {},
+        lua_ls = {
+          config = {
+            require('lspconfig').lua_ls.setup {},
+          },
+        },
       },
     },
     config = function(_, opts)
+      -- This ordering is important
+      require('mason').setup()
+      require('mason-lspconfig').setup()
       local lspconfig = require 'lspconfig'
+
       for server, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         lspconfig[server].setup(config)
