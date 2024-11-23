@@ -13,6 +13,12 @@ return { -- Collection of various small independent plugins/modules
     -- Comment lines
     require('mini.comment').setup()
 
+    -- Visualize indent level
+    require('mini.indentscope').setup()
+
+    -- Startup splash
+    require('mini.starter').setup()
+
     -- Simple and easy statusline.
     -- TODO: Replace this with better statusline
     local statusline = require 'mini.statusline'

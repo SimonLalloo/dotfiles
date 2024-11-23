@@ -1,12 +1,3 @@
---   'folke/tokyonight.nvim',
---   priority = 1000,
---   init = function()
---     vim.cmd.colorscheme 'tokyonight-night'
---
---     -- You can configure highlights by doing something like:
---     vim.cmd.hi 'Comment gui=none'
---   end,
--- },
 return {
   {
     'rachartier/tiny-devicons-auto-colors.nvim',
@@ -16,16 +7,27 @@ return {
     config = true,
   },
 
+  -- {
+  --   'sainnhe/gruvbox-material',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.g.gruvbox_material_enable_italic = true
+  --     vim.g.gruvbox_material_foreground = 'material'
+  --     vim.g.gruvbox_material_background = 'hard'
+  --     vim.g.gruvbox_material_transparent_background = 0
+  --     vim.cmd.colorscheme 'gruvbox-material'
+  --   end,
+  -- },
   {
-    'sainnhe/gruvbox-material',
+    'sainnhe/sonokai',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.gruvbox_material_enable_italic = true
-      vim.g.gruvbox_material_foreground = 'material'
-      vim.g.gruvbox_material_background = 'hard'
-      vim.g.gruvbox_material_transparent_background = 0
-      vim.cmd.colorscheme 'gruvbox-material'
+      vim.g.sonokai_enable_italic = true
+      vim.g.sonokai_style = 'atlantis'
+      vim.g.sonokai_better_performance = 1
+      vim.cmd.colorscheme 'sonokai'
     end,
   },
 
