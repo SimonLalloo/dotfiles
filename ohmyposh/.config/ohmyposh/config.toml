@@ -1,8 +1,25 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[palette]
+  grey = '#6c6c6c'
+
+# Secondary prompt block
+# for multiline commands
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+
+# Transient prompt
+# The part that is shown for previously run commands
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  type = 'path'
+  style = 'plain'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 # Top left block
 [[blocks]]
@@ -10,29 +27,29 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   alignment = 'left'
   newline = true
 
-
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'green'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'green'
-    template = '{{ .Path }}'
-    
+
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
     foreground = 'p:grey'
     background = 'transparent'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
       branch_icon = ''
+      cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
-
 
 # Top right block
 [[blocks]]
@@ -40,52 +57,28 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   overflow = 'hidden'
 
   [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
+    template = '{{ .FormattedMs }}'
     foreground = 'yellow'
     background = 'transparent'
-    template = '{{ .FormattedMs }}'
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       threshold = 5000
 
-
-# Prompt block
+# Main prompt block
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
   newline = true
 
   [[blocks.segments]]
+    template = '❯'
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    background = 'transparent'
-    template = '❯'
-    foreground_templates = [
-      '{{if gt .Code 0}}red{{end}}',
-      '{{if eq .Code 0}}magenta{{end}}',
-    ]
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
-
-# Transient prompt block
-[transient_prompt]
-  type = 'path'
-  style = 'plain'
-  background = 'transparent'
-  foreground_templates = [
-    '{{if gt .Code 0}}red{{end}}',
-    '{{if eq .Code 0}}magenta{{end}}',
-  ]
-  template = '❯ '
-
-
-# Secondary prompt block
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = '❯❯ '
-
-
-[palette]
-# green = ''
-grey = '#6c6c6c'
+    [blocks.segments.properties]
+      cache_duration = 'none'
