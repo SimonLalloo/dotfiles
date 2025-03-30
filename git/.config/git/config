@@ -9,18 +9,52 @@
 	editor = vim
 	excludesfile = $XDG_CONFIG_HOME/git/gitignore
 
-[color]
-	ui = auto
-
 [alias]
 	unstage = restore --staged
 
-	# TODO
-	
+# UI
+[color]
+	ui = auto		# Use colors
+
+[column]
+	ui = auto
+
+# Settings
 [init]
-	defaultBranch = main
+	defaultBranch = main	
 
 [pull]
-	rebase = false
+	rebase = false		# No auto rebase
 
-# TODO: Add Meld
+[push]
+	autoSetupRemote = true	# Automatically add remote
+	followTags = true	# Automatically push tags
+
+[diff]
+	algorithm = histogram	# Better diff algorithm
+	colorMoved = plain	# Use different colors for moved code
+	mnemonicPrefix = true
+	renames = true		# Recognize renamed files
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+	conflictstyle = zdiff3	# Better diff shows original version as well as both changes
+	tool = meld
+[mergetool "meld"]
+	# Only use one of these lines
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	; cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[branch]
+	sort = -committerdate	# Reasonable sorting
+
+[tag]
+	sort = version:refname	# Reasonable sorting
+
+[rerere]
+	enabled = true		# Save rebase solutions
+	autoupdate = true
