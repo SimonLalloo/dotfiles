@@ -1,0 +1,85 @@
+"" ========================================================
+"" Base Settings
+"" ========================================================
+set scrolloff=5
+set history=1000
+set number linenumber
+set showmode
+set showcmd
+set smartcase
+set incsearch
+set hlsearch
+set visualbell
+
+" Leader Key
+let mapleader="\<space>"
+
+" Default Behavior
+set gdefault
+
+" IdeaVim Specific Settings
+set ideajoin
+set ideamarks
+set idearefactormode=normal
+set ideastatusicon=gray
+
+"" ========================================================
+"" Plugin Settings
+"" ========================================================
+set commentary
+set ReplaceWithRegister
+set surround
+set nerdtree
+
+" Highlighting Plugins
+set highlightedyank
+
+" I don't think this works
+set which-key
+set notimeout
+let g:WhichKey_FontSize = 20
+" let g:WhichKey_PrefixColor = "#a403fe"
+" let g:WhichKey_CommandColor = "#01ffff"
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "false"
+
+"" ========================================================
+"" Key Mappings
+"" ========================================================
+" Tab navigation
+nmap <C-p> <Action>(PreviousTab)
+nmap <C-n> <Action>(NextTab)
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Navigation actions
+nmap <C-i> <Action>(Back)
+nmap <C-o> <Action>(Forward)
+
+" Jump between methods
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" Visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" IDE interaction
+nmap <C-m> <Action>(ShowPopupMenu)
+nmap <C-S-m> <Action>(ToolWindowsGroup)
+
+" Clear Search Highlighitng
+nnoremap <C-[> :noh<return>
+
+"" ========================================================
+"" Key Mappings
+"" ========================================================
+" Yank to clipboard
+nmap <leader>y "+y
+vmap <leader>y "+y
