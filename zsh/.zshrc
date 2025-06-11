@@ -81,3 +81,7 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# PATH stuff
+[ -f "/home/simon/.ghcup/env" ] && . "/home/simon/.ghcup/env" # ghcup-env
+export PATH="$HOME/.cargo/bin:$PATH"
